@@ -34,6 +34,7 @@
           vim-surround
           vim-commentary
           vim-airline
+          vim-css-color
           srcery-vim
         ];
       };
@@ -41,6 +42,7 @@
       customRC = ''
         set encoding=utf-8
         set nohlsearch
+        set clipboard+=unnamedplus
         set bg=dark
 
         set tabstop=4
@@ -67,14 +69,10 @@
   programs.zsh = {
     enable = true;
 
-    shellAliases = { };
-
     ohMyZsh = {
       enable = true;
-
-      plugins = [ "git" "python" "man" "ag" "vi-mode" ];
-      theme = "darkblood";
-      # theme = "half-life";
+      # theme = "darkblood";
+      theme = "half-life";
     };
   };
 
@@ -87,15 +85,18 @@
   fonts = let
     m = [ "Mononoki" ];
     i = [ "Iosevka" ];
+    r = [ "Roboto" ];
   in {
     fonts = with pkgs; [
       mononoki
       iosevka
+      roboto
+      nerdfonts
     ];
     fontconfig.defaultFonts = {
       monospace = m;
-      sansSerif = i;
-      serif = i;
+      sansSerif = r;
+      serif = r;
     };
   };
 
