@@ -123,7 +123,7 @@
     libinput.enable = true;
 
     layout = "us,ru";
-    xkbOptions = "grp:alt_shift_toggle";
+    xkbOptions = "grp:caps_toggle";
 
     displayManager.defaultSession = "none+bspwm";
     displayManager.autoLogin.enable = true;
