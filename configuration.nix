@@ -20,6 +20,13 @@
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Modified by me
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.docker.enable = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -89,7 +96,6 @@
   in {
     fonts = with pkgs; [
       mononoki
-      iosevka
       roboto
       nerdfonts
     ];
@@ -150,7 +156,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.human = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "audio" "docker" ]; # Enable ‘sudo’ for the user.
 
     packages = with pkgs; [
       home-manager
